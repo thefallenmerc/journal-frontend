@@ -1,38 +1,227 @@
 .App {
+  /* text-align: center; */
+  font-family: 'Montserrat', sans-serif;
+  color: #232323;
+}
+
+.Loader {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+}
+
+.Loader .spinner {
+  content: " ";
+  display: block;
+  background: 0;
+  animation: spinner .75s ease-in-out infinite;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  border-color: dodgerblue transparent dodgerblue transparent;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.text-center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Login Page */
+
+.App .Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.App .Login form {
+  width: 320px;
+}
+
+.App .Login .form-group {
+  margin-bottom: 0.75rem;
+}
+
+.App .Login form input {
+  display: block;
+  padding: 10px 10px;
+  width: 100%;
+  border: 1px solid lightgray;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.App .Login form button {
+  padding: 10px 16px;
+  border: none;
+  background-color: orangered;
+  color: white;
+  border-radius: 4px;
+}
+
+.App .form-message {
+  color: dodgerblue;
+  font-size: 0.8rem;
+}
+
+.App .form-error {
+  color: red;
+  font-size: 0.8rem;
+}
+
+/* Today Component */
+
+.Today form {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.Today form input {
+  border: none;
+  display: block;
+  width: 100%;
+  padding: 13px 16px;
+  font-size: 1.7rem;
+  box-sizing: border-box;
+}
+
+.Today form textarea {
+  border: none;
+  flex-grow: 1;
+  font-size: 1.4rem;
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  line-height: 2.2rem;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.Today form button.submit {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  padding: 18px 16px 16px 18px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  background-color: dodgerblue;
+  border: none;
+}
+
+.Today form .close {
+  position: fixed;
+  padding: 13px 23px 16px 23px;
+  right: 0;
+  top: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  background-color: dodgerblue;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.Today form .close:hover {
+  background-color: #0d80dd;
+}
+
+.Today form button:hover {
+  background-color: #0d80dd;
+}
+
+/* Dashboard */
+
+.Dashboard .greeting {
+  text-align: center;
+  margin: 1rem;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  color: #232323;
+}
+
+.Dashboard .greeting .name {
+  color: dodgerblue;
+}
+
+.Dashboard .pages {
+  display: flex;
+  padding: 1rem 6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 480px) {
+  .Dashboard .pages {
+    padding: 1rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.Dashboard .pages .page {
+  width: 200px;
+  margin: 15px;
+  padding: 12px;
+  /* border: 1px solid dodgerblue; */
+  border-radius: 12px;
+  box-shadow: 0 0 6px 0 #0002;
+  transition: all 0.4s;
+  cursor: pointer;
+  color: dodgerblue;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.Dashboard .pages .page:hover {
+  box-shadow: 0 0 12px 0 #0002;
+  background-color: dodgerblue;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Dashboard .pages .page .title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Dashboard .pages .page .dated .date {
+  font-weight: bold;
+  font-size: 5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.Dashboard .pages .page .dated .rest {
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+*:focus {
+  outline: none;
 }
